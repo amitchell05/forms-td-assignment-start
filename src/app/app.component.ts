@@ -12,6 +12,6 @@ export class AppComponent {
   subscriptions: string[] = ["Basic", "Advanced", "Pro"];
 
   onSubmit() {
-    console.log(this.userForm);
+    console.log(this.userForm.value);
   }
 }
