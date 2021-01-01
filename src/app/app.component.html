@@ -13,15 +13,32 @@
            Upon submitting the form, you should simply print the Value of the Form to the Console.
            Optionally, display it in your template.
       -->
-      <form>
-        <div id="user-data">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
           <div class="form-group">
             <label for="email">Email</label>
-            <input class="form-control" type="email" id="email" required />
+            <input
+              class="form-control"
+              type="email"
+              id="email"
+              ngModel
+              name="email"
+              required
+              email
+              #email="ngModel"
+            />
           </div>
+          <span class="help-block" *ngIf="!email.valid && email.touched">
+            Please enter a valid email address!
+          </span>
           <div class="form-group">
             <label for="subscription">Subscriptions</label>
-            <select id="subscription" class="form-control">
+            <select
+              id="subscription"
+              class="form-control"
+              ngModel
+              name="subscription"
+            >
               <option
                 *ngFor="let subscription of subscriptions"
                 [value]="subscription"
@@ -36,10 +53,21 @@
               class="form-control"
               type="password"
               id="password"
+              ngModel
+              name="password"
               required
+              #password="ngModel"
             />
           </div>
-          <button class="btn btn-primary" type="submit">Submit</button>
+          <span class="help-block" *ngIf="!password.valid && password.touched">
+            Please enter a valid password!
+          </span>
+          <p *ngIf="!userData.valid && userData.touched">
+            User data is invalid!
+          </p>
+          <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+            Submit
+          </button>
         </div>
       </form>
     </div>
