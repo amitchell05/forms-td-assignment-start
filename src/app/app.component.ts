@@ -18,6 +18,8 @@ export class AppComponent {
   submitted: boolean = false;
 
   onSubmit() {
+    // console.log(this.signupForm.value);
+
     this.submitted = true;
 
     this.user.email = this.signupForm.value.userData.email;
