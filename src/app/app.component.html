@@ -72,4 +72,13 @@
       </form>
     </div>
   </div>
+  <div class="row" *ngIf="submitted">
+    <div class="col-xs-12">
+      <hr />
+      <h3>Your Data</h3>
+      <p>Email: {{ user.email }}</p>
+      <p>Subscription: {{ user.subscription }}</p>
+      <p>Passwrod: {{ user.password }}</p>
+    </div>
+  </div>
 </div>
