@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
 export class AppComponent {
   @ViewChild('f') signupForm: NgForm;
   subscriptions: string[] = ['Basic', 'Advanced', 'Pro'];
+  selectedSubscription: string = 'Advanced';
   user = {
     email: '',
     subscription: '',
